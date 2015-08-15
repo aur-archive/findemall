@@ -1,0 +1,18 @@
+post_install() {
+  chmod +x /usr/share/findemall-1.3/findemall.py
+  ln -s -f /usr/share/findemall-1.3/findemall.py /usr/bin/findemall
+}
+
+post_upgrade() {
+  post_install
+}
+
+post_remove() {
+  /bin/true
+  rm /usr/bin/findemall
+}
+
+op=$1
+shift
+
+$op $*
